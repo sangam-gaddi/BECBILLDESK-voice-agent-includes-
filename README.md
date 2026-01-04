@@ -1,196 +1,217 @@
- BEC BillDesk — The Ultimate College Fee Payment & Student Portal
+# 🎓 BEC BillDesk - AI-Powered College Fee Payment Portal
 
-BEC BillDesk is not just a web app—it's the next big leap for digital transformation in campus finance and student engagement!
+A modern, **macOS-inspired** college fee payment portal with an **AI voice assistant (ARIA)** for Bangalore Engineering College.
 
-## 🌟 Why BEC BillDesk?
+![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)
+![React](https://img.shields.io/badge/React-18-blue?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)
+![MongoDB](https://img.shields.io/badge/MongoDB-green?logo=mongodb)
+![LiveKit](https://img.shields.io/badge/LiveKit-Voice-purple)
 
-**Tired of long queues, clunky portals, and payment confusion?**  
-BEC BillDesk unleashes the *power of modern web & blockchain* for the smoothest college experience ever.  
-Pay fees your way—crypto, UPI, netbanking, or cash—with real-time updates, instant history, and one tap support chat for students.
+## ✨ Features
 
-No more “Did my payment go through?” drama. No more uncertainty.  
-Seamless, speedy, and absolutely secure—a portal you'll love to use, and your admin will trust.
-
----
-
-## ✨ Key Features
-
-- **Multiple Fee Payments in One Go**: Select one, two, or all your pending fees, view detailed breakdowns, & pay in a batch!
-- **A Universe of Payment Methods**:  
-    - 🪙 **Crypto** (Sepolia ETH, with WalletConnect/MetaMask/QR)
-    - 💸 **UPI** (manual, with live ID copy and verification)
-    - 🏦 **Net Banking** (mock flow for realistic demo)
-    - 💵 **Cash** (with physical counter workflow)
-- **Real Blockchain Integration**:  
-    - Every crypto transaction is on Ethereum Sepolia—traceable on Etherscan!
-- **Instant Paid Status & History**:  
-    - No more guessing—fees go to "Paid" the moment blockchain confirms.
-    - Every transaction is logged with details and external proofs.
-- **Modern, Creamy UI & Animations**:  
-    - Next.js + Tailwind + Framer Motion for a smooth, mobile-perfect interface.
-- **Real-Time Chat**:  
-    - Get support or banter with friends using global or private messaging—direct from your dashboard.
-- **Full Security**:  
-    - JWT/auth, bcrypt, secure sessions. 12-Word recovery like the pros.
+- 🖥️ **macOS Desktop Environment** - Dock, windows, launchpad, control center
+- 🎤 **AI Voice Assistant (ARIA)** - Friendly guide powered by Cerebras AI
+- 💳 **Multiple Payment Methods** - Crypto (Sepolia ETH), UPI, Net Banking, Cash
+- 🔐 **JWT Authentication** - Secure student login
+- 📄 **PDF Receipts** - Bank of Baroda style receipt generation
+- 💬 **Real-time Chat** - Socket.IO powered live chat
+- 🌙 **Dark/Light Mode** - Dynamic theming
 
 ---
 
-## 🧩 File Structure
+## 📦 Installation Guide
 
-```
-becbilldesk/
-│
-├─ app/                         # Next.js frontend & routing
-│  ├─ dashboard/                # 🚦 The user portal dashboard
-│  │   └─ page.tsx
-│  ├─ payment/                  # 💳 Polished payment page
-│  │   └─ page.tsx
-│  └─ api/                      # 🔌 API (auth, payments, chat)
-│      ├─ auth/                 # Login, signup, session, me, logout
-│      ├─ payments/             # Payment API endpoints
-│      └─ socket.ts             # Real-time chat server
-│
-├─ components/                  # 🧱 Awesome UI & logic
-│  ├─ payment/                  # UPI, Crypto, NetBanking, Cash widgets
-│  │   ├─ UPIPayment.tsx
-│  │   ├─ CashPayment.tsx
-│  │   ├─ NetBanking.tsx
-│  │   └─ CryptoPayment.tsx
-│  ├─ ChatPanel.tsx             # Floating chat for dashboard
-│  ├─ LiveClock.tsx             # Real time clock at payment top
-│  └─ providers/
-│      └─ PaymentProviders.tsx  # Wagmi/RainbowKit providers
-│
-├─ config/
-│  └─ wagmi.ts                  # ⭐ RainbowKit/Wagmi chain config
-│
-├─ lib/
-│  ├─ auth/                     # 🛡️ Session/password funcs
-│  │   ├─ session.ts
-│  │   └─ password.ts
-│  └─ data/
-│      └─ feeStructure.ts       # The detailed fee structure, breakdowns, calc helpers
-│
-├─ database/
-│  └─ models/                   # Mongoose models
-│      ├─ Student.ts
-│      ├─ Payment.ts
-│      └─ ...
-│
-├─ public/
-│  └─ img/                      # Logo, assets, banners
-│
-├─ tailwind.config.ts           # Styling config
-├─ .env.local                   # Project secrets, wallet connect IDs, Mongo URI
-├─ package.json
-└─ README.md                    # YOU ARE HERE!
+### Prerequisites
+
+- **Node.js** 18+ (LTS recommended)
+- **Python** 3.10+ (for voice agent)
+- **MongoDB** (Atlas or local)
+- **Git**
+
+### Step 1: Download & Extract
+
+```bash
+# Clone the repository (or download ZIP and extract)
+git clone https://github.com/sangam-gaddi/BECBILLDESK-voice-agent-includes-.git
+cd BECBILLDESK-voice-agent-includes-
 ```
 
-## 🛠️ Technology Stack
+### Step 2: Install Node.js Dependencies
 
-BEC BillDesk isn’t just “modern” by buzzwords—it runs on the best patterns and open-source technology available right now:
+```bash
+npm install
+```
+
+### Step 3: Install Python Dependencies (for Voice Agent)
+
+```bash
+cd voice-agent
+pip install -r requirements.txt
+cd ..
+```
+
+### Step 4: Environment Variables
+
+The `.env.local` file is already included with API keys. If you need to update them:
+
+```env
+# MongoDB
+MONGODB_URI=your_mongodb_connection_string
+
+# JWT Secret (generate a random string)
+JWT_SECRET=your_secret_key
+
+# LiveKit (get from https://livekit.io)
+LIVEKIT_API_KEY=your_key
+LIVEKIT_API_SECRET=your_secret
+LIVEKIT_URL=wss://your-project.livekit.cloud
+
+# Deepgram - Speech-to-Text (get from https://deepgram.com)
+DEEPGRAM_API_KEY=your_key
+
+# Cerebras - LLM (get from https://cerebras.ai)
+CEREBRAS_API_KEY=your_key
+
+# Cartesia - Text-to-Speech (get from https://cartesia.ai)
+CARTESIA_API_KEY=your_key
+```
+
+### Step 5: Seed the Database (Optional)
+
+If you need sample student data, create students in MongoDB with this schema:
+```json
+{
+  "usn": "2BA23IS001",
+  "studentName": "John Doe",
+  "email": "john@example.com",
+  "password": "hashed_password",
+  "department": "ISE",
+  "semester": "5",
+  "paidFees": [],
+  "isRegistered": true
+}
+```
+
+---
+
+## 🚀 Running the Application
+
+### Terminal 1: Start Next.js (Frontend + Backend)
+
+```bash
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000)
+
+### Terminal 2: Start Voice Agent (ARIA)
+
+```bash
+cd voice-agent
+python agent.py dev
+```
+
+---
+
+## 🎤 Using the Voice Assistant (ARIA)
+
+1. Login as a student
+2. Click the **microphone button** (bottom-right corner)
+3. ARIA will greet you and can help with:
+   - Explaining your pending fees
+   - Guiding you through payments
+   - Answering questions about the platform
+   - Telling occasional college jokes! 😄
+
+---
+
+## 💳 Payment Methods
+
+| Method | Description |
+|--------|-------------|
+| **Crypto** | Pay with Sepolia ETH (testnet) via MetaMask |
+| **UPI** | Manual UPI transfer with verification |
+| **Net Banking** | Bank transfer flow |
+| **Cash** | Counter payment with challan system |
+
+---
+
+## 🛠️ Tech Stack
 
 ### Frontend
-- **Next.js** (using the App Router, file-based routing, built-in serverless API routes)
-- **React** (Hooks, Suspense, `useEffect`, `useState`)
-- **TailwindCSS** (utility-first, instant modern styling)
-- **Framer Motion** (fluid, smooth animations everywhere)
-- **Lucide-React** (clean, scalable SVG icons)
-- **react-hot-toast** (non-blocking toast notifications)
+- Next.js 14 (App Router)
+- React 18 + TypeScript
+- Tailwind CSS + Framer Motion
+- macOS-style UI components
 
-### Payment/Blockchain
-- **wagmi v2** (next-gen React hooks for Ethereum & EVM)
-- **@rainbow-me/rainbowkit** (multi-wallet connector with extension and QR support)
-- **viem** (modern EVM tx library for ETH transfers)
-- **WalletConnect v2** (for mobile wallet scan)
-- **Sepolia testnet** (safe, free ETH demo for testing/payments—can go mainnet anytime!)
+### Backend
+- Next.js API Routes
+- MongoDB + Mongoose
+- JWT Authentication
+- Socket.IO (real-time chat)
 
-### Real-Time Chat & Backend
-- **Socket.io** (ultra-responsive, scalable real-time chat for groups/private)
-- **MongoDB** (user db, payments, transaction history)
-- **Mongoose** (schema-first DB, fast and safe)
-- **Next.js API routes** (for login, registration, session, payments, chat events)
-- **JWT** (secure, expirable logins)
-- **bcrypt** (the real deal for password hashing)
+### Voice Agent
+- **LiveKit** - Real-time audio
+- **Deepgram** - Speech-to-Text
+- **Cerebras AI** - LLM (Llama 3.1)
+- **Cartesia** - Text-to-Speech
 
----
-
-## 🎬 Walkthrough — How Does It Work?
-
-### 1. **Signup, Login, and Security**
-- Secure sign up with USN/email, password, plus a 12-word human recovery phrase—just like modern crypto tools.
-- On login, a JWT session is handed out via httpOnly cookies.
-- Session auto-renews, expiring securely on period or logout.
-- Your mnemonic is never plain-stored!
-
-### 2. **Dashboard — The Command Center**
-- Your name, your USN, all your fee status in one glance.
-- Each fee (e.g., Tuition, Hostel, Development, Exam) is a **card**: see its due amount, due date, and expand for a detailed fee breakdown (even mess, library, sports, IT!).
-- Pick one, many, or all pending fees via checkboxes.
-- **Floating summary** at the bottom appears as soon as you start selecting—never accidentally overpays.
-- Stats: Total paid, pending, # transactions. All update live after every fee payment.
-
-### 3. **Payment: Blazing-Fast, Trustworthy, Your Way**
-- Pick your favorite payment type using a **gesture-ready slider**:
-  - **Crypto**: Connect MetaMask, Trust, Rainbow, or scan mobile wallet QR. 1-click Sepolia ETH payment, fully testable, Etherscan link guaranteed.
-  - **UPI**: Copy UPI ID and UPI-verify, all in one step.
-  - **Net Banking**: Mock flow, perfect for demo or extension.
-  - **Cash**: See admin counter details, input receipt for instant DB update.
-- No matter the number of fees you chose, payment is “batch”—makes life easy!
-- **After payment:** UI instantly reflects success, fees are marked PAID and vanish from the pending pool.
-
-### 4. **Transaction History**
-- Every payment, with timestamp, method, exact paid fees, and—if crypto—the direct Etherscan link.
-- Clear, fast audit trail: admins can trace any payment at any time.
-
-### 5. **Real-Time Chat**
-- Integrated “ChatPanel” floats bottom right.
-- Global chat: say hi to everyone.
-- Private: click any user—direct message, with live typing indicators and online badge.
-
-### 6. **Responsive & Polished**
-- Mobile to large screen, it scales and looks sharp everywhere.
-- Animations aren’t distracting—they make your life easy!
-- Consistent rich brown/black UI typography, clean white/cream cards, gorgeous focus rings and buttons.
+### Web3
+- RainbowKit + wagmi
+- Sepolia Testnet
 
 ---
 
-## 🚩 The Future is Built In
+## 📁 Project Structure
 
-- Direct mainnet upgrade path for real ETH/USDT/other tokens
-- Admin dashboard ready for extension
-- Plug-in new payment methods
-- Email/SMS hooks possible
-- Add refund/reconciliation/reporting with ease
-
----
-
-## 🏆 Why BEC BillDesk Wins
-
-This isn’t just a project;
-- It destroys the “manual fees headache” for everyone—students, parents, admin, auditors.
-- It proves that even a college system can be as “fintech” as your favorite bank app.
-- Its code quality, modularity, polish, and *actual blockchain integration* are simply not seen in typical academic or hackathon work—you are in SaaS-level territory.
-
----
-
-## 💻 To Run Locally
-
-1. **Clone the repo**
-2. `cd becbilldesk`
-3. `npm install`
-4. Copy `.env.example` to `.env.local` and add your Mongo URI, WalletConnect ID, etc.
-5. `npm run dev`
-6. Open [http://localhost:3000](http://localhost:3000) and experience the difference!
+```
+├── app/                    # Next.js App Router
+│   ├── api/               # API routes
+│   ├── dashboard/         # Main dashboard
+│   └── payment/           # Payment page
+├── components/
+│   ├── macos/             # macOS UI components
+│   ├── payment/           # Payment components
+│   └── voice/             # Voice assistant UI
+├── voice-agent/           # Python voice agent
+│   ├── agent.py           # Main agent file
+│   └── requirements.txt   # Python dependencies
+├── database/              # MongoDB models
+├── hooks/                 # React hooks
+├── lib/                   # Utilities & actions
+└── public/                # Static assets
+```
 
 ---
 
-## 📬 Want to Contribute?
+## 🔧 Troubleshooting
 
-Open an issue, suggest UI changes, PR bugfixes, or even propose new payment methods.
+### Voice agent not connecting?
+- Ensure all API keys are set in `.env.local`
+- Check if LiveKit worker is registered (look for "registered worker" in terminal)
 
-**BEC BillDesk** — where college fintech meets the future.
+### MongoDB connection issues?
+- Verify `MONGODB_URI` in `.env.local`
+- Check if your IP is whitelisted in MongoDB Atlas
+
+### Payment not working?
+- For crypto: Ensure MetaMask is on Sepolia testnet
+- Get test ETH from [Sepolia Faucet](https://sepoliafaucet.com)
 
 ---
 
-**Ready to try? Spin it up—pay your fees, chat with classmates, and see the blockchain proof for yourself! 🚀**
+## 📜 License
+
+MIT License - Feel free to use and modify!
+
+---
+
+## 👨‍💻 Author
+
+**Sangam Gaddi**  
+BEC - ISE Department
+
+---
+
+Made with ❤️ for BEC students
