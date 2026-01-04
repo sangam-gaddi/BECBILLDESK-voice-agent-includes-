@@ -45,11 +45,21 @@ npm install
 
 ### Step 3: Install Python Dependencies (for Voice Agent)
 
+**Option A: Using pip (standard)**
 ```bash
 cd voice-agent
 pip install -r requirements.txt
 cd ..
 ```
+
+**Option B: Using uv (faster - recommended if you have it)**
+```bash
+cd voice-agent
+uv pip install -r requirements.txt
+cd ..
+```
+
+> 💡 Don't have `uv`? Install it: `pip install uv` or see [uv docs](https://github.com/astral-sh/uv)
 
 ### Step 4: Environment Variables
 
