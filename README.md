@@ -1,6 +1,6 @@
 # 🎓 BEC BillDesk - AI-Powered College Fee Payment Portal
 
-A modern, **macOS-inspired** college fee payment portal with an **AI voice assistant (ARIA)** for Bangalore Engineering College.
+A modern, **macOS-inspired** college fee payment portal with an **AI voice assistant (ARIA)** for  Engineering College.
 
 ![Next.js](https://img.shields.io/badge/Next.js-14-black?logo=next.js)
 ![React](https://img.shields.io/badge/React-18-blue?logo=react)
