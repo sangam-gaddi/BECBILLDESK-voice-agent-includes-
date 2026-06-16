@@ -219,9 +219,5 @@ MIT License - Feel free to use and modify!
 
 ## 👨‍💻 Author
 
-**Sangam Gaddi**  
-BEC - ISE Department
-
----
-
-Made with ❤️ for BEC students
+**Sharvatanay Patil**
+BCA Department NHCK
